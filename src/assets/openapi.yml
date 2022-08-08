@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: RDF isomorphic checker
+  description: This API uses Apache Jena to check if two RDF graphs are isomorphic.
+  version: 1.0.0
+paths:
+  /api/v1/isomorphic:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                graphOneData:
+                  type: string
+                  example: <urn:example:s> <urn:example:p> <urn:example:o> .
+                graphOneFormat:
+                  type: string
+                  default: text/turtle
+                  enum: [text/turtle, application/n-triples, application/rdf+xml, application/ld+json]
+                graphTwoData:
+                  type: string
+                  example: <urn:example:s> <urn:example:p> <urn:example:o> .
+                graphTwoFormat:
+                  type: string
+                  default: text/turtle
+                  enum: [text/turtle, application/n-triples, application/rdf+xml, application/ld+json]
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isomorphic:
+                    type: boolean
+                    example: true
+        '400':
+          description: Client input error
+          content:
+            plain/text:
+              schema:
+                type: string
