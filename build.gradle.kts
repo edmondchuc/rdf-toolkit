@@ -7,12 +7,13 @@ val jena_arq_version: String by project
 plugins {
     application
     kotlin("jvm") version "1.7.10"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "com.edmondchuc"
 version = "0.0.1"
 application {
-    mainClass.set("com.edmondchuc.ApplicationKt")
+    mainClass.set("com.edmondchuc.rdf.ApplicationKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")

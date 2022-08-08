@@ -7,7 +7,7 @@ import com.edmondchuc.rdf.plugins.configureRouting
 
 fun main() {
     // TODO: Fix auto-reload...
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", watchPaths = listOf("rdf-star-patch")) {
+    embeddedServer(Netty, port = 8080, host = "0.0.0.0", watchPaths = listOf("rdf-toolbox")) {
         configureRouting()
     }.start(wait = true)
 }

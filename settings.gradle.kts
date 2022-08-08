@@ -1,1 +1,1 @@
-rootProject.name = "rdf-star-patch"
+rootProject.name = "rdf-toolbox"
