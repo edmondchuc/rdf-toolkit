@@ -10,7 +10,6 @@ import io.ktor.server.http.content.*
 import io.ktor.server.response.*
 import io.ktor.server.request.*
 
-import java.io.File
 import java.io.IOException
 
 fun Application.configureRouting() {
@@ -73,19 +72,20 @@ fun Application.configureRouting() {
     }
     routing {
         static("/api/v1") {
-            staticRootFolder = File("src/assets")
-            file("openapi.yml")
+            staticBasePackage = "openapi"
+            resource("openapi.yml")
         }
     }
     routing {
-        get("/docs") {
-            call.respondFile(File("src/assets/openapi.html"))
+        static("/docs") {
+            staticBasePackage = "openapi"
+            resource("", "index.html")
         }
     }
     routing {
         static("/assets") {
-            staticRootFolder = File("src/assets")
-            file("favicon-32x32.png")
+            staticBasePackage = "static"
+            resource("favicon-32x32.png")
         }
     }
 }
