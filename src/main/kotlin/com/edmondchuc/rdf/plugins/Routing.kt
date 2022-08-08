@@ -72,8 +72,9 @@ fun Application.configureRouting() {
         }
     }
     routing {
-        get("/api/v1/openapi.yml") {
-            call.respondFile(File("src/assets/openapi.yml"))
+        static("/api/v1") {
+            staticRootFolder = File("src/assets")
+            file("openapi.yml")
         }
     }
     routing {
