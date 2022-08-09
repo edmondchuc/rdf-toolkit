@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: RDF Toolbox
-  description: An toolbox containing common functions for working with RDF.
+  title: RDF Toolkit
+  description: An toolkit containing common functions for working with RDF.
   version: 1.0.0
 paths:
   /api/v1/isomorphic:
