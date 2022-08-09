@@ -1,11 +1,12 @@
 openapi: 3.0.0
 info:
-  title: RDF isomorphic checker
-  description: This API uses Apache Jena to check if two RDF graphs are isomorphic.
+  title: RDF Toolbox
+  description: An toolbox containing common functions for working with RDF.
   version: 1.0.0
 paths:
   /api/v1/isomorphic:
     post:
+      description: Use Apache Jena to check if two RDF graphs are isomorphic.
       requestBody:
         content:
           multipart/form-data:
