@@ -1,12 +1,13 @@
 package com.edmondchuc.rdf
 
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import com.edmondchuc.rdf.plugins.*
-import com.edmondchuc.rdf.plugins.configureRouting
+import MaxSizeLimit
 
-fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", watchPaths = listOf("classes")) {
-        configureRouting()
-    }.start(wait = true)
+import com.edmondchuc.rdf.plugins.configureRouting
+import io.ktor.server.application.*
+
+fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+
+fun Application.module() {
+    install(MaxSizeLimit)
+    configureRouting()
 }
