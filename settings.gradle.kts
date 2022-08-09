@@ -1,1 +1,1 @@
-rootProject.name = "rdf-toolbox"
+rootProject.name = "rdf-toolkit"
