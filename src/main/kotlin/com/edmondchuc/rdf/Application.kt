@@ -1,6 +1,6 @@
 package com.edmondchuc.rdf
 
-import MaxSizeLimit
+import com.edmondchuc.rdf.plugins.MaxSizeLimit
 import com.edmondchuc.rdf.routing.configureIsomorphicRouting
 
 import com.edmondchuc.rdf.routing.configureRouting
