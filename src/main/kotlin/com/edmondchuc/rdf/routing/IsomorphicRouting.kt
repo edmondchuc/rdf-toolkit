@@ -1,25 +1,15 @@
-package com.edmondchuc.rdf.plugins
+package com.edmondchuc.rdf.routing
 
 import com.edmondchuc.rdf.isomorphic
-
-import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.http.content.*
 import io.ktor.server.application.*
-import io.ktor.server.http.content.*
-import io.ktor.server.response.*
 import io.ktor.server.request.*
-
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 import java.io.IOException
 
-fun Application.configureRouting() {
-
-    // Starting point for a Ktor app:
-    routing {
-        get("/") {
-            call.respondRedirect("/docs")
-        }
-    }
+fun Application.configureIsomorphicRouting() {
     routing {
         post("/api/v1/isomorphic") {
             var graphOneData = ""
@@ -68,24 +58,6 @@ fun Application.configureRouting() {
             } catch (e: Exception) {
                 call.respondText("${e.message}", status = HttpStatusCode.BadRequest)
             }
-        }
-    }
-    routing {
-        static("/api/v1") {
-            staticBasePackage = "openapi"
-            resource("openapi.yml")
-        }
-    }
-    routing {
-        static("/docs") {
-            staticBasePackage = "openapi"
-            resource("", "index.html")
-        }
-    }
-    routing {
-        static("/assets") {
-            staticBasePackage = "static"
-            resource("favicon-32x32.png")
         }
     }
 }
