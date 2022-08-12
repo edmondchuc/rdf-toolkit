@@ -9,7 +9,7 @@ paths:
       description: Using Apache Jena, check if two RDF graphs are isomorphic.
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
               properties:
@@ -19,14 +19,14 @@ paths:
                 graphOneFormat:
                   type: string
                   default: text/turtle
-                  enum: [text/turtle, application/n-triples, application/rdf+xml, application/ld+json]
+                  enum: [ text/turtle, application/n-triples, application/rdf+xml, application/ld+json ]
                 graphTwoData:
                   type: string
                   example: <urn:example:s> <urn:example:p> <urn:example:o> .
                 graphTwoFormat:
                   type: string
                   default: text/turtle
-                  enum: [text/turtle, application/n-triples, application/rdf+xml, application/ld+json]
+                  enum: [ text/turtle, application/n-triples, application/rdf+xml, application/ld+json ]
       responses:
         '200':
           description: Successful operation

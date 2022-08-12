@@ -16,3 +16,7 @@ val MaxSizeLimit = createApplicationPlugin(name = "MaxSizeLimit") {
         }
     }
 }
+
+fun Application.configureMaxSizeLimit() {
+    install(MaxSizeLimit)
+}
