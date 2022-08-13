@@ -33,6 +33,24 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("io.ktor:ktor-server-content-negotiation:2.0.3")
     implementation("io.ktor:ktor-server-cio:2.0.3")
+    implementation("org.graalvm.buildtools.native:org.graalvm.buildtools.native.gradle.plugin:0.9.13")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
+
+//graalvmNative {
+//    binaries {
+//        named("main") {
+//            fallback.set(false)
+//            verbose.set(true)
+//
+//            buildArgs.add("--initialize-at-build-time=io.ktor,kotlin")
+//
+//            buildArgs.add("-H:+InstallExitHandlers")
+//            buildArgs.add("-H:+ReportUnsupportedElementsAtRuntime")
+//            buildArgs.add("-H:+ReportExceptionStackTraces")
+//
+//            imageName.set("rdf-toolkit")
+//        }
+//    }
+//}
